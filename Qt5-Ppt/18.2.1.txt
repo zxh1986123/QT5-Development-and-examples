@@ -1,0 +1,82 @@
+#include "drawer.h"
+#include <QGroupBox>
+#include <QVBoxLayout>
+Drawer::Drawer(QWidget *parent, Qt::WindowFlags f)
+    :QToolBox(parent,f)
+{
+    setWindowTitle(tr("Myself QQ 2013"));      	//设置主窗体的标题
+    setWindowIcon(QPixmap(":/images/qq.png"));	//设置主窗体标题栏图标
+    toolBtn1 =new QToolButton;					//(a)
+    toolBtn1->setText(tr("水漂奇鼋"));			//(b)
+    toolBtn1->setIcon(QPixmap(":/images/spqy.png"));
+												//(c)
+    toolBtn1->setIconSize(QPixmap(":/images/spqy.png").size());
+												//(d)
+    toolBtn1->setAutoRaise(true);				//(e)
+    toolBtn1->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+												//(f)
+    toolBtn2 =new QToolButton;
+    toolBtn2->setText(tr("忆梦如澜"));
+    toolBtn2->setIcon(QPixmap(":/images/ymrl.png"));
+    toolBtn2->setIconSize(QPixmap(":/images/ymrl.png").size());
+    toolBtn2->setAutoRaise(true);
+    toolBtn2->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    toolBtn3 =new QToolButton;
+    toolBtn3->setText(tr("北京出版人"));
+    toolBtn3->setIcon(QPixmap(":/images/qq.png"));
+    toolBtn3->setIconSize(QPixmap(":/images/qq.png").size());
+    toolBtn3->setAutoRaise(true);
+    toolBtn3->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    toolBtn4 =new QToolButton;
+    toolBtn4->setText(tr("Cherry"));
+    toolBtn4->setIcon(QPixmap(":/images/Cherry.png"));
+    toolBtn4->setIconSize(QPixmap(":/images/Cherry.png").size());
+    toolBtn4->setAutoRaise(true);
+    toolBtn4->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    toolBtn5 =new QToolButton;
+    toolBtn5->setText(tr("淡然"));
+    toolBtn5->setIcon(QPixmap(":/images/dr.png"));
+    toolBtn5->setIconSize(QPixmap(":/images/dr.png").size());
+    toolBtn5->setAutoRaise(true);
+    toolBtn5->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    toolBtn6 =new QToolButton;
+    toolBtn6->setText(tr("娇娇girl"));
+    toolBtn6->setIcon(QPixmap(":/images/jj.png"));
+    toolBtn6->setIconSize(QPixmap(":/images/jj.png").size());
+    toolBtn6->setAutoRaise(true);
+    toolBtn6->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    toolBtn7 =new QToolButton;
+    toolBtn7->setText(tr("落水无痕"));
+    toolBtn7->setIcon(QPixmap(":/images/lswh.png"));
+    toolBtn7->setIconSize(QPixmap(":/images/lswh.png").size());
+    toolBtn7->setAutoRaise(true);
+    toolBtn7->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    toolBtn8 =new QToolButton;
+    toolBtn8->setText(tr("青墨暖暖"));
+    toolBtn8->setIcon(QPixmap(":/images/qmnn.png"));
+    toolBtn8->setIconSize(QPixmap(":/images/qmnn.png").size());
+    toolBtn8->setAutoRaise(true);
+    toolBtn8->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    toolBtn9 =new QToolButton;
+    toolBtn9->setText(tr("无语"));
+    toolBtn9->setIcon(QPixmap(":/images/wy.png"));
+    toolBtn9->setIconSize(QPixmap(":/images/wy.png").size());
+    toolBtn9->setAutoRaise(true);
+    toolBtn9->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    QGroupBox *groupBox=new QGroupBox;			//(g)
+    QVBoxLayout *layout=new QVBoxLayout(groupBox);
+												//(h)
+    layout->setMargin(20);						//布局中各窗体的显示间距
+    layout->setAlignment(Qt::AlignLeft);		//布局中各窗体的显示位置
+    layout->addWidget(toolBtn1);				//(i)
+    layout->addWidget(toolBtn2);
+    layout->addWidget(toolBtn3);
+    layout->addWidget(toolBtn4);
+    layout->addWidget(toolBtn5);
+    layout->addWidget(toolBtn6);
+    layout->addWidget(toolBtn7);
+    layout->addWidget(toolBtn8);
+    layout->addWidget(toolBtn9);
+    layout->addStretch();						//插入一个占位符
+    this->addItem((QWidget*)groupBox,tr("群成员"));    
+}

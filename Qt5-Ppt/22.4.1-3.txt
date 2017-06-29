@@ -1,0 +1,19 @@
+#include <QApplication>
+#include <QQmlApplicationEngine>
+#include "htmlhandler.h"							//包含头文件
+#include "texthandler.h"							//包含头文件
+#include <QtQml/qqml.h>
+#include <QIcon>
+int main(int argc, char *argv[])
+{
+    QApplication app(argc, argv);
+    app.setWindowIcon(QIcon(":/images/vieweye.png"));	
+//设置主窗口标题栏图标
+    /* 注册网页处理器 */
+    qmlRegisterType<HtmlHandler>("org.qtproject.easybooks", 1, 0, "HtmlHandler");
+    /* 注册文本处理器 */
+    qmlRegisterType<TextHandler>("org.qtproject.easybooks", 1, 0, "TextHandler");
+    QQmlApplicationEngine engine;
+    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    return app.exec();
+}

@@ -1,0 +1,27 @@
+void Server::updClntProgress(qint64 numBytes)
+{
+    qApp->processEvents();			//(a)
+    bytesWritten += (int)numBytes;
+    if (bytesTobeWrite > 0) {
+        outBlock = locFile->read(qMin(bytesTobeWrite, payloadSize));
+        bytesTobeWrite -= (int)clntConn->write(outBlock);
+        outBlock.resize(0);
+    } else {
+        locFile->close();
+    }
+    ui->progressBar->setMaximum(totalBytes);
+    ui->progressBar->setValue(bytesWritten);
+    float useTime = time.elapsed();
+    double speed = bytesWritten / useTime;
+    ui->sStatusLbl->setText(tr("已发送 %1MB (%2MB/s) \n共%3MB 已用时:%4秒\n估计剩余时间：%5秒")
+                   .arg(bytesWritten / (1024*1024))
+                   .arg(speed*1000 / (1024*1024), 0, 'f', 2)
+                   .arg(totalBytes / (1024 * 1024))
+                   .arg(useTime/1000, 0, 'f', 0)
+                   .arg(totalBytes/speed/1000 - useTime/1000, 0, 'f', 0));
+    if(bytesWritten == totalBytes) {
+        locFile->close();
+        tSrv->close();
+        ui->sStatusLbl->setText(tr("传送文件 %1 成功").arg(theFileName));
+    }
+}

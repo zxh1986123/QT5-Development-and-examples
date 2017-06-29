@@ -1,0 +1,25 @@
+#include "mainwindow.h"
+#include <QItemSelectionModel>
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+{
+    createAction();
+    createMenu();
+    setupModel();
+    setupView();
+    setWindowTitle(tr("View Example"));
+    resize(600,600);
+}
+MainWindow::~MainWindow()
+{
+}
+void MainWindow::createAction()
+{
+    openAct = new QAction(tr("打开"),this);
+}
+void MainWindow::createMenu()
+{
+    fileMenu = new QMenu(tr("文件"),this);
+    fileMenu->addAction(openAct);
+    menuBar()->addMenu(fileMenu);
+}

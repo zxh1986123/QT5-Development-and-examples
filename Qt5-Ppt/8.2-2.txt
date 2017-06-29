@@ -1,0 +1,18 @@
+#include "modelex.h"
+ModelEx::ModelEx(QObject *parent)
+    :QAbstractTableModel(parent)
+{
+    armyMap[1]=tr("空军");
+    armyMap[2]=tr("海军");
+    armyMap[3]=tr("陆军");
+    armyMap[4]=tr("海军陆战队");
+    weaponTypeMap[1]=tr("轰炸机");
+    weaponTypeMap[2]=tr("战斗机");
+    weaponTypeMap[3]=tr("航空母舰");
+    weaponTypeMap[4]=tr("驱逐舰");
+    weaponTypeMap[5]=tr("直升机");
+    weaponTypeMap[6]=tr("坦克");
+    weaponTypeMap[7]=tr("两栖攻击舰");
+    weaponTypeMap[8]=tr("两栖战车");
+    populateModel();
+}

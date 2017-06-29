@@ -1,0 +1,22 @@
+MyWord::MyWord(QWidget *parent)
+    : QMainWindow(parent)
+{
+    mdiArea = new QMdiArea;
+    mdiArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    mdiArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    setCentralWidget(mdiArea);
+    connect(mdiArea, SIGNAL(subWindowActivated(QMdiSubWindow*)),this, 
+SLOT(updateMenus()));
+    windowMapper = new QSignalMapper(this);
+    connect(windowMapper, SIGNAL(mapped(QWidget*)),this, SLOT 
+(setActiveSubWindow(QWidget*)));
+    createActions();
+    createMenus();
+    createToolBars();
+    createStatusBar();
+    updateMenus();
+    move(200,150);
+    resize(800,500);
+    setWindowTitle(tr("Myself Word"));
+    setUnifiedTitleAndToolBarOnMac(true);
+}

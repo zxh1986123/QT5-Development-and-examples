@@ -1,0 +1,30 @@
+void MyWord::updateMenus()
+{
+    //至少有一个子文档打开时的情况
+    bool hasMyChild = (activeMyChild()!=0);
+    saveAct->setEnabled(hasMyChild);
+    saveAsAct->setEnabled(hasMyChild);
+    printAct->setEnabled(hasMyChild);
+    printPreviewAct->setEnabled(hasMyChild);
+    pasteAct->setEnabled(hasMyChild);
+    closeAct->setEnabled(hasMyChild);
+    closeAllAct->setEnabled(hasMyChild);
+    tileAct->setEnabled(hasMyChild);
+    cascadeAct->setEnabled(hasMyChild);
+    nextAct->setEnabled(hasMyChild);
+    previousAct->setEnabled(hasMyChild);
+	//设置分隔条是否显示
+    separatorAct->setVisible(hasMyChild);
+    //文档打开并且其中有内容被选中的情况
+    bool hasSelection = (activeMyChild() && activeMyChild()->textCursor(). hasSelection());
+    cutAct->setEnabled(hasSelection);
+    copyAct->setEnabled(hasSelection);
+    boldAct->setEnabled(hasSelection);
+    italicAct->setEnabled(hasSelection);
+    underlineAct->setEnabled(hasSelection);
+    leftAlignAct->setEnabled(hasSelection);
+    centerAct->setEnabled(hasSelection);
+    rightAlignAct->setEnabled(hasSelection);
+    justifyAct->setEnabled(hasSelection);
+    colorAct->setEnabled(hasSelection);
+}

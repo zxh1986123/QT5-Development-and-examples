@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>CAnimateObj.qml</file>
+        <file>images/zhou.jpg</file>
+    </qresource>
+</RCC>

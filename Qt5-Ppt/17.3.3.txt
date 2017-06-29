@@ -1,0 +1,25 @@
+void MyWord::undo()
+{
+    if(activeMyChild())
+        activeMyChild()->undo();
+}
+void MyWord::redo()
+{
+    if(activeMyChild())
+        activeMyChild()->redo();
+}
+void MyWord::cut()
+{
+    if (activeMyChild())
+        activeMyChild()->cut();
+}
+void MyWord::copy()
+{
+    if (activeMyChild())
+        activeMyChild()->copy();
+}
+void MyWord::paste()
+{
+    if (activeMyChild())
+        activeMyChild()->paste();
+}

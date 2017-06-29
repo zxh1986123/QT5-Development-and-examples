@@ -1,0 +1,25 @@
+void Dialog::submit()
+{
+    	QString factory = factoryEditor->text();					//(a)
+   	QString address = addressEditor->text();					//(b)
+   	QString name = carEditor->text();							//(c)
+   	if (factory.isEmpty() || address.isEmpty()||name.isEmpty()) 
+	{
+   		QString message(tr("请输入厂名、厂址和商品名称！"));
+     	QMessageBox::information(this, tr("添加产品"), message);
+    	 }															//(d) 
+	 else														//(e) 
+	 {
+        	int factoryId = findFactoryId(factory);
+	     if(factoryId == -1)										//(f)
+	     {
+	         	factoryId = addNewFactory(factory,address);
+	     }
+        	int carId = addNewCar(name, factoryId);				//(g)
+        	QStringList attribs;
+        	attribs = attribEditor->text().split(";", QString::SkipEmptyParts);
+																//(h)
+     	addAttribs(carId, attribs);								//(i)
+        	accept();
+    	}
+}

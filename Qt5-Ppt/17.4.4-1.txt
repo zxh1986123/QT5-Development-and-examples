@@ -1,0 +1,53 @@
+void MyChild::setStyle(int style)
+{
+    QTextCursor cursor = this->textCursor();
+    if (style != 0) {
+		// QTextListFormat主要用于描述文本标号、编号的格式
+        QTextListFormat::Style stylename = QTextListFormat::ListDisc;
+        switch (style) {
+            default:
+            case 1:
+                stylename = QTextListFormat::ListDisc;		//实心圆标号
+                break;
+            case 2:
+                stylename = QTextListFormat::ListCircle;		//空心圆标号
+                break;
+            case 3:
+                stylename = QTextListFormat::ListSquare;		//方形标号
+                break;
+            case 4:
+                stylename = QTextListFormat::ListDecimal; 	//十进制编号
+                break;
+            case 5:
+                stylename = QTextListFormat::ListLowerAlpha;   //小写字母编号
+                break;
+            case 6:
+                stylename = QTextListFormat::ListUpperAlpha; //大写字母编号
+                break;
+            case 7:
+                stylename = QTextListFormat::ListLowerRoman; //小写罗马编号
+                break;
+            case 8:
+                stylename = QTextListFormat::ListUpperRoman; //大写罗马编号
+                break;
+        }
+		//为支持撤销操作
+        cursor.beginEditBlock();
+        QTextBlockFormat blockFmt = cursor.blockFormat();
+        QTextListFormat listFmt;
+        if (cursor.currentList()) {
+            listFmt = cursor.currentList()->format();
+        } else {
+            listFmt.setIndent(blockFmt.indent() + 1);
+            blockFmt.setIndent(0);
+            cursor.setBlockFormat(blockFmt);
+        }
+        listFmt.setStyle(stylename);
+        cursor.createList(listFmt);
+        cursor.endEditBlock();
+    } else {
+        QTextBlockFormat bfmt;
+        bfmt.setObjectIndex(-1);
+        cursor.mergeBlockFormat(bfmt);						//合并格式
+    }
+}

@@ -1,0 +1,29 @@
+void MyWord::createActions()
+{
+	...
+    /*"窗口"主菜单动作集*/
+    closeAct = new QAction(tr("关闭(&O)"), this);
+    closeAct->setStatusTip(tr("关闭活动文档子窗口"));
+    connect(closeAct, SIGNAL(triggered()),mdiArea, SLOT(closeActiveSub Window()));
+    closeAllAct = new QAction(tr("关闭所有(&A)"), this);
+    closeAllAct->setStatusTip(tr("关闭所有子窗口"));
+    connect(closeAllAct, SIGNAL(triggered()),mdiArea, SLOT(closeAllSub Windows()));
+    tileAct = new QAction(tr("平铺(&T)"), this);
+    tileAct->setStatusTip(tr("平铺子窗口"));
+    connect(tileAct, SIGNAL(triggered()), mdiArea, SLOT(tileSubWindows ()));
+    cascadeAct = new QAction(tr("层叠(&C)"), this);
+    cascadeAct->setStatusTip(tr("层叠子窗口"));
+    connect(cascadeAct, SIGNAL(triggered()), mdiArea, SLOT(cascadeSub Windows()));
+    nextAct = new QAction(tr("下一个(&X)"), this);
+    nextAct->setShortcuts(QKeySequence::NextChild);
+    nextAct->setStatusTip(tr("移动焦点到下一个子窗口"));
+    connect(nextAct, SIGNAL(triggered()),mdiArea, SLOT(activateNextSub 
+Window()));
+    previousAct = new QAction(tr("前一个(&V)"), this);
+    previousAct->setShortcuts(QKeySequence::PreviousChild);
+    previousAct->setStatusTip(tr("移动焦点到前一个子窗口"));
+    connect(previousAct, SIGNAL(triggered()),mdiArea, SLOT(activate 
+PreviousSubWindow()));
+    separatorAct = new QAction(this);
+    separatorAct->setSeparator(true);
+}

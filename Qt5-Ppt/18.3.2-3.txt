@@ -1,0 +1,30 @@
+void Widget::sndMsg(MsgType type, QString srvaddr)
+{
+    QByteArray data;
+    QDataStream out(&data, QIODevice::WriteOnly);
+    QString address = getIP();
+    out << type << getUsr();			//(a)
+    switch(type)
+    {
+    case Msg :							//(b)
+        if (ui->msgTxtEdit->toPlainText() == "") {
+            QMessageBox::warning(0,tr("警告"),tr("发送内容不能为空"), QMessageBox::Ok);
+            return;
+        }
+        out << address << getMsg();
+        ui->msgBrowser->verticalScrollBar()->setValue(
+					ui->msgBrowser->verticalScrollBar()->maximum());
+        break;
+    case UsrEnter :						//(c)
+        out << address;
+        break;
+    case UsrLeft :						//(d)
+        break;
+    case FileName : {					//(e)
+        break;
+    }
+    case Refuse :
+        break;
+    }
+    udpSocket->writeDatagram(data,data.length(),QHostAddress:: Broadcast, port);							//(f)
+}

@@ -1,0 +1,21 @@
+void MyWord::textBold()
+{
+    QTextCharFormat fmt;
+    fmt.setFontWeight(boldAct->isChecked() ? QFont::Bold : QFont:: Normal);
+    if(activeMyChild())
+        activeMyChild()->mergeFormatOnWordOrSelection(fmt);
+}
+void MyWord::textItalic()
+{
+    QTextCharFormat fmt;
+    fmt.setFontItalic(italicAct->isChecked());
+    if(activeMyChild())
+        activeMyChild()->mergeFormatOnWordOrSelection(fmt);
+}
+void MyWord::textUnderline()
+{
+    QTextCharFormat fmt;
+    fmt.setFontUnderline(underlineAct->isChecked());
+    if(activeMyChild())
+        activeMyChild()->mergeFormatOnWordOrSelection(fmt);
+}

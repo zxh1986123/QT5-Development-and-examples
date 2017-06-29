@@ -1,0 +1,25 @@
+void Server::sndMsg()
+{
+    ui->sSendBtn->setEnabled(false);
+    clntConn = tSrv->nextPendingConnection();
+    connect(clntConn,SIGNAL(bytesWritten(qint64)),this,SLOT (updClntProgress(qint64)));
+    ui->sStatusLbl->setText(tr("开始传送文件 %1 ！").arg(theFileName));
+    locFile = new QFile(fileName);
+    if(!locFile->open((QFile::ReadOnly))){				//(a)
+        QMessageBox::warning(this, tr("应用程序"), tr("无法读取文件 %1:\n%2"). arg(fileName).arg(locFile->errorString()));
+        return;
+    }
+    totalBytes = locFile->size();						//(b)
+    QDataStream sendOut(&outBlock, QIODevice::WriteOnly);
+														//(c)
+    sendOut.setVersion(QDataStream::Qt_4_7);
+    time.start();  										//(d)
+    QString curFile = fileName.right(fileName.size() - fileName. lastIndexOf ('/')-1);										//(e)
+    sendOut << qint64(0) << qint64(0) << curFile;		//(f)
+    totalBytes += outBlock.size();
+    sendOut.device()->seek(0);							//(g)
+    sendOut << totalBytes << qint64((outBlock.size() – sizeof (qint64)*2));															//(h)
+    bytesTobeWrite = totalBytes - clntConn->write(outBlock);
+														//(i)
+    outBlock.resize(0);									//(j)
+}

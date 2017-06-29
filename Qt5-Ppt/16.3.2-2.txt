@@ -1,0 +1,18 @@
+void Widget::showChart()
+{
+    QSqlQuery query;
+    query.exec(QString("select name,sell from brand where factory= '%1'"). arg(ui->factoryComboBox->currentText()));
+    chartModel->removeRows(0,chartModel->rowCount(QModelIndex()), QModelIndex());
+    int row = 0;
+    while(query.next()){
+        int r = qrand()%256;
+        int g = qrand()%256;
+        int b = qrand()%256;
+        chartModel->insertRows(row,1,QModelIndex());
+        chartModel->setData(chartModel->index(row,0,QModelIndex()), query. value(0).toString());
+        chartModel->setData(chartModel->index(row,1,QModelIndex()),query.
+value(1). toInt());
+        chartModel->setData(chartModel->index(row,0,QModelIndex()), QColor(r,g,b),Qt::DecorationRole);
+        row++;
+    }
+}

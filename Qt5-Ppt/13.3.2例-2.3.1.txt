@@ -1,0 +1,25 @@
+void ConnDlg::on_okButton_clicked()
+{
+	if (ui.comboDriver->currentText().isEmpty())		//(a) 
+	{
+		ui.status_label->setText(tr("请选择一个数据库驱动！"));
+		ui.comboDriver->setFocus();
+	} 
+	else if(ui.comboDriver->currentText() =="QSQLITE")	//(b)
+	{
+		addSqliteConnection();
+		//创建数据库表，如已存在则无须执行
+         	creatDB();										//(c)
+		accept();
+    	}
+	else
+	{
+		QSqlError err = addConnection(driverName(), databaseName(), hostName(),userName(), password(), port());				//(d)
+    		if (err.type() != QSqlError::NoError)			//(e)
+			ui.status_label->setText(err.text());
+		else											//(f)
+			ui.status_label->setText(tr("连接数据库成功!"));
+		//创建数据库表，如已存在则无须执行
+		accept();
+      }
+}

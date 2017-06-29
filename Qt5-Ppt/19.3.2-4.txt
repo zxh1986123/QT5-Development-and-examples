@@ -1,0 +1,24 @@
+…
+Rectangle {
+    id:btn
+    width: 100;height: 62
+    …
+    Text {
+	   …
+    }
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            label.text = "按钮已按下！"
+            label.font.pointSize = 11
+            btn.color = "aqua"
+            btn.border.color = "teal"
+		    /* 改变changingRect1的右锚属性 */			//(a)
+            chgRect1.anchors.left = undefined
+            chgRect1.anchors.right = rRect.right
+		    /* 改变changingRect2的右锚属性 */			//(b)
+            chgRect2.anchors.right = rRect.right
+            chgRect2.anchors.left = undefined
+        }
+    }
+}

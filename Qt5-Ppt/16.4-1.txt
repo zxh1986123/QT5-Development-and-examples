@@ -1,0 +1,22 @@
+void LoginDialog::on_loginBtn_clicked()
+{
+    if(ui->pwdLineEdit->text().isEmpty()){
+        QMessageBox::information(this,tr("ÇëÊäÈëÃÜÂë"),tr("ÇëÏÈÊäÈëÃÜÂëÔÙµÇÂ¼£¡"),QMessageBox::Ok);
+        ui->pwdLineEdit->setFocus();
+    }else{
+        QSqlQuery query;
+        query.exec("select pwd from password");
+        query.next();
+        if(query.value(0).toString() == ui->pwdLineEdit->text()){
+            QDialog::accept();
+        }else{
+            QMessageBox::warning(this,tr("ÃÜÂë´íÎó"),tr("ÇëÊäÈëÕýÈ·µÄÃÜÂëÔÙµÇÂ¼£¡"),QMessageBox::Ok);
+            ui->pwdLineEdit->clear();
+            ui->pwdLineEdit->setFocus();
+        }
+    }
+}
+void LoginDialog::on_quitBtn_clicked()
+{
+    QDialog::reject();
+}

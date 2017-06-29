@@ -1,0 +1,22 @@
+void MyWord::createToolBars()
+{
+	...
+    //组合工具栏
+    addToolBarBreak(Qt::TopToolBarArea);
+    comboToolBar = addToolBar(tr("组合选择"));
+    comboStyle = new QComboBox();
+	...
+    comboFont = new QFontComboBox();
+    comboToolBar->addWidget(comboFont);
+    comboFont->setStatusTip("更改字体");
+connect(comboFont, SIGNAL(activated(QString)), this, SLOT(textFamily (QString)));
+    comboSize = new QComboBox();
+    comboToolBar->addWidget(comboSize);
+    comboSize->setEditable(true);
+    comboSize->setStatusTip("更改字号");
+    QFontDatabase db;
+    foreach(int size, db.standardSizes())
+        comboSize->addItem(QString::number(size));
+connect(comboSize, SIGNAL(activated(QString)), this, SLOT(textSize (QString)));
+comboSize->setCurrentIndex(comboSize->findText(QString::number (QApplication::font(). pointSize())));
+}

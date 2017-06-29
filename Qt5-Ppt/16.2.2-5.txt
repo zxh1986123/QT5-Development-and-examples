@@ -1,0 +1,41 @@
+void Widget::showDailyList()
+{
+    ui->dailyList->clear();
+    if(docRead()){
+        QDomElement root = doc.documentElement();
+        QString title = root.tagName();
+        QListWidgetItem *titleItem = new QListWidgetItem;
+        titleItem->setText(QString("-----%1-----").arg(title));
+        titleItem->setTextAlignment(Qt::AlignCenter);
+        ui->dailyList->addItem(titleItem);
+        if(root.hasChildNodes()){
+            QString currentDate = getDateTime(Date);
+            QDomElement dateElement = root.lastChild().toElement();
+
+            QString date = dateElement.attribute("date");
+            if(date == currentDate){
+                ui->dailyList->addItem("");
+                ui->dailyList->addItem(QString("日期:%1").arg(date));
+                ui->dailyList->addItem("");
+                QDomNodeList children = dateElement.childNodes();
+                //遍历当日销售的所有汽车
+                for(int i=0;i<children.count();i++){
+                    QDomNode node = children.at(i);
+                    QString time = node.toElement().attribute("time");
+                    QDomNodeList list = node.childNodes();
+                    QString factory = list.at(0).toElement().text();
+                    QString brand = list.at(1).toElement().text();
+                    QString price = list.at(2).toElement().text();
+                    QString num = list.at(3).toElement().text();
+                    QString sum = list.at(4).toElement().text();
+                    QString str = time + "出售" + brand + factory + " " + num + "辆，" + "成交价:" + price + "万，共" + sum + "万元";
+                    QListWidgetItem *tempItem = new QListWidgetItem;
+                    tempItem->setText("**************************");
+                    tempItem->setTextAlignment(Qt::AlignCenter);
+                    ui->dailyList->addItem(tempItem);
+                    ui->dailyList->addItem(str);
+                }
+            }
+        }
+    }
+}

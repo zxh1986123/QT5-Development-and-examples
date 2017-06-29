@@ -1,0 +1,23 @@
+void MyWord::filePrint()
+{
+    QPrinter printer(QPrinter::HighResolution);
+    QPrintDialog *dlg = new QPrintDialog(&printer, this);
+    if (activeMyChild()->textCursor().hasSelection())
+        dlg->addEnabledOption(QAbstractPrintDialog::PrintSelection);
+    dlg->setWindowTitle(tr("´òÓ¡ÎÄµµ"));
+    if (dlg->exec() == QDialog::Accepted)
+        activeMyChild()->print(&printer);
+    delete dlg;
+}
+void MyWord::filePrintPreview()
+{
+    QPrinter printer(QPrinter::HighResolution);
+    QPrintPreviewDialog preview(&printer, this);
+    connect(&preview, SIGNAL(paintRequested(QPrinter*)), SLOT 
+(printPreview(QPrinter*)));
+    preview.exec();
+}
+void MyWord::printPreview(QPrinter *printer)
+{
+    activeMyChild()->print(printer);
+}

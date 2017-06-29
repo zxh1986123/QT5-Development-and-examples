@@ -1,0 +1,177 @@
+#root {
+	MARGIN: auto; WIDTH: 1000px; HEIGHT: auto; OVERFLOW: hidden
+}
+#topNav {
+	HEIGHT: 30px; MARGIN-LEFT: 10px
+}
+#topNav UL {
+	LIST-STYLE-TYPE: none; FLOAT: right; HEIGHT: 30px; MARGIN-RIGHT: 15px
+}
+#topNav .li1 {
+	LINE-HEIGHT: 26px; LIST-STYLE-TYPE: none; FLOAT: left; HEIGHT: 26px; PADDING-TOP: 4px
+}
+#topNav .rline {
+	BORDER-LEFT: #5588c9 1px solid; MARGIN: 10px 8px 0px; WIDTH: 1px; FLOAT: left; HEIGHT: 12px
+}
+#topNav A {
+	COLOR: #0066a7
+}
+#suitlogo {
+	OVERFLOW-X: hidden; WIDTH: 1000px
+}
+#sernav {
+	WIDTH: 1000px; BACKGROUND: url(../../newimg/bstopic/jsj1/mainpage_07.jpg) no-repeat; FLOAT: left; HEIGHT: 40px; OVERFLOW: hidden
+}
+#nav {
+	PADDING-LEFT: 10px; WIDTH: 830px; FLOAT: left; HEIGHT: 40px
+}
+.ser_btn {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 12px; PADDING-RIGHT: 12px; FLOAT: left; HEIGHT: 40px; PADDING-TOP: 0px
+}
+.sb_link {
+	LINE-HEIGHT: 40px; FONT-FAMILY: "Î¢ÈíÑÅºÚ"; FLOAT: left; HEIGHT: 40px; COLOR: #a3b0b9; FONT-SIZE: 16px
+}
+.sb_curlink {
+	COLOR: #0c88ce; FONT-WEIGHT: bold
+}
+.sb_sep {
+	BORDER-LEFT: #a3b0b9 1px solid; LINE-HEIGHT: 40px; MARGIN-TOP: 8px; WIDTH: 1px; FLOAT: left; HEIGHT: 24px; OVERFLOW: hidden
+}
+#readerclub {
+	WIDTH: 160px; FLOAT: left; HEIGHT: 40px
+}
+.readerclub {
+	WIDTH: 160px; BACKGROUND: url(../../newimg/bstopic/jsj1/readerclub.jpg) no-repeat; FLOAT: left; HEIGHT: 40px
+}
+#sertopic {
+	WIDTH: 160px; FLOAT: left; HEIGHT: 40px
+}
+.sertopic {
+	WIDTH: 160px; BACKGROUND: url(../../newimg/bstopic/jsj1/sertopic.jpg) no-repeat; FLOAT: left; HEIGHT: 40px
+}
+#r4 {
+	LINE-HEIGHT: 0px; WIDTH: 1000px; BACKGROUND: url(../../newimg/bstopic/jsj1/mainpage_08.jpg) no-repeat; FLOAT: left; HEIGHT: 8px; OVERFLOW: hidden
+}
+#r5 {
+	HEIGHT: 151px
+}
+#r5_c1 {
+	WIDTH: 30px; BACKGROUND: url(../../newimg/bstopic/jsj1/mainpage_10.jpg) no-repeat; FLOAT: left; HEIGHT: 151px; OVERFLOW: hidden
+}
+#r5_c2 {
+	LINE-HEIGHT: 151px; BACKGROUND-COLOR: #ffffff; WIDTH: 537px; FLOAT: left; HEIGHT: 151px; OVERFLOW: hidden
+}
+#r5_c3 {
+	WIDTH: 59px; BACKGROUND: url(../../newimg/bstopic/jsj1/mainpage_12.jpg) no-repeat; FLOAT: left; HEIGHT: 151px; OVERFLOW: hidden
+}
+#r5_c4 {
+	WIDTH: 345px; BACKGROUND: url(../../newimg/bstopic/jsj1/xltdbg.jpg) no-repeat; FLOAT: left; HEIGHT: 151px; OVERFLOW: hidden
+}
+.xltd {
+	WIDTH: 354px; BACKGROUND: url(../../newimg/bstopic/jsj1/xltd.gif) no-repeat; HEIGHT: 30px
+}
+#r5_41_pager {
+	LINE-HEIGHT: 24px; WIDTH: 100px; FLOAT: right; HEIGHT: 24px
+}
+#r5_41_pa {
+	TEXT-ALIGN: center; WIDTH: 20px; FLOAT: left
+}
+#r5_41_pgr {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; FONT-FAMILY: "Arial"; FLOAT: left; FONT-SIZE: 14px; PADDING-TOP: 0px
+}
+#r5_41_na {
+	TEXT-ALIGN: center; WIDTH: 20px; FLOAT: left
+}
+#mid_rigth_ct {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 20px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 340px; PADDING-RIGHT: 0px; WORD-WRAP: break-word; FLOAT: left; HEIGHT: 120px; FONT-SIZE: 14px; OVERFLOW: hidden; PADDING-TOP: 0px
+}
+#mid_rigth_ct * {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 20px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 14px; PADDING-TOP: 0px
+}
+#mid_rigth_ct IMG {
+	DISPLAY: none
+}
+#r5_c5 {
+	WIDTH: 23px; BACKGROUND: url(../../newimg/bstopic/jsj1/mainpage_09.jpg) no-repeat; FLOAT: left; HEIGHT: 151px; OVERFLOW: hidden
+}
+#r6 {
+	WIDTH: 1000px; BACKGROUND: url(../../newimg/bstopic/jsj1/mainpage_14.gif) no-repeat; FLOAT: left; HEIGHT: 26px; OVERFLOW: hidden
+}
+#r7 {
+	WIDTH: 1000px; FLOAT: left
+}
+#r7_c1 {
+	WIDTH: 252px; FLOAT: left
+}
+#r7_c1_c1 {
+	WIDTH: 7px; BACKGROUND: url(../../newimg/bstopic/jsj1/mainpage_17.jpg) no-repeat; FLOAT: left; HEIGHT: 1018px
+}
+#r7_c1_c2 {
+	WIDTH: 238px; FLOAT: left; HEIGHT: 1018px; OVERFLOW: hidden
+}
+#r7_c1_c2_r1 {
+	WIDTH: 238px; BACKGROUND: url(../../newimg/bstopic/jsj1/sjlb.gif) no-repeat; FLOAT: left; HEIGHT: 31px
+}
+#booklist {
+	PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 5px; WIDTH: 231px; PADDING-RIGHT: 0px; HEIGHT: 987px; OVERFLOW: hidden; PADDING-TOP: 0px
+}
+#booklist UL {
+	LIST-STYLE-TYPE: none; MARGIN-TOP: 5px; LIST-STYLE-IMAGE: none
+}
+#booklist UL LI {
+	PADDING-BOTTOM: 4px; PADDING-LEFT: 14px; WIDTH: 219px; PADDING-RIGHT: 0px; BACKGROUND: url(../../newimg/bstopic/def/y_bigdot.gif) no-repeat 0px 8px; FONT-SIZE: 14px; PADDING-TOP: 4px
+}
+#booklist UL LI A {
+	COLOR: #000
+}
+#booklist UL LI A:hover {
+	COLOR: #d20
+}
+#booklist .selected {
+	PADDING-BOTTOM: 2px; BACKGROUND-COLOR: #d1d1d1; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; PADDING-TOP: 4px
+}
+#r7_c1_c3 {
+	WIDTH: 7px; BACKGROUND: url(../../newimg/bstopic/jsj1/mainpage_19.jpg) no-repeat; FLOAT: left; HEIGHT: 1018px
+}
+#r7_c2 {
+	BACKGROUND-COLOR: #ffffff; WIDTH: 741px; FLOAT: left
+}
+#r7c2_2 {
+	WIDTH: 728px; FLOAT: left
+}
+.r7c2_2_errors {
+	TEXT-ALIGN: left; PADDING-LEFT: 20px; WIDTH: 708px; FLOAT: left; HEIGHT: 16px; COLOR: #f00
+}
+#heightbar {
+	WIDTH: 1px; FLOAT: left; HEIGHT: 1018px
+}
+.pageblk {
+	MARGIN: 5px auto; WIDTH: 740px; FONT-FAMILY: Arial; OVERFLOW: hidden
+}
+.pageblk .l {
+	TEXT-ALIGN: left; PADDING-LEFT: 10px; WIDTH: 400px; FLOAT: left; PADDING-TOP: 3px
+}
+.pageblk .r {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: 100px; PADDING-RIGHT: 0px; PADDING-TOP: 7px
+}
+.pageblk .r INPUT {
+	BORDER-BOTTOM: #333333 1px solid; BORDER-LEFT: #333333 1px solid; MARGIN: -4px 2px 0px; WIDTH: 30px; HEIGHT: 20px; VERTICAL-ALIGN: middle; BORDER-TOP: #333333 1px solid; BORDER-RIGHT: #333333 1px solid
+}
+.pageblk SPAN {
+	MARGIN: 0px 2px; FLOAT: left
+}
+.pageblk SPAN.null {
+	PADDING-BOTTOM: 3px; BACKGROUND-COLOR: #eaeaea; PADDING-LEFT: 6px; PADDING-RIGHT: 6px; PADDING-TOP: 5px
+}
+.pageblk SPAN.on {
+	BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; PADDING-BOTTOM: 2px; BACKGROUND-COLOR: #eaeaea; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; COLOR: #ff0000; BORDER-TOP: #cccccc 1px solid; FONT-WEIGHT: bold; BORDER-RIGHT: #cccccc 1px solid; PADDING-TOP: 4px
+}
+.pageblk SPAN A {
+	BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; PADDING-BOTTOM: 2px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FLOAT: left; COLOR: #007ed9; BORDER-TOP: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid; PADDING-TOP: 4px
+}
+.pageblk SPAN A:visited {
+	BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; PADDING-BOTTOM: 2px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FLOAT: left; COLOR: #007ed9; BORDER-TOP: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid; PADDING-TOP: 4px
+}
+.pageblk SPAN A:hover {
+	TEXT-DECORATION: none
+}

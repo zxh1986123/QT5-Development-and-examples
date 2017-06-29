@@ -1,0 +1,37 @@
+void MyWord::createActions()
+{
+    /*"文件"主菜单动作集*/
+    newAct = new QAction(QIcon(rsrcPath + "/filenew.png"), tr("新建(&N)"), this);
+    newAct->setShortcuts(QKeySequence::New);
+    newAct->setToolTip("新建");                  
+    newAct->setStatusTip(tr("创建一个新文档")); 
+    //connect(newAct, SIGNAL(triggered()), this, SLOT(fileNew()));
+    openAct = new QAction(QIcon(rsrcPath + "/fileopen.png"), tr("打开(&O)..."), this);
+    openAct->setShortcuts(QKeySequence::Open);
+    openAct->setToolTip("打开");
+    openAct->setStatusTip(tr("打开已存在的文档"));
+    //connect(openAct, SIGNAL(triggered()), this, SLOT(fileOpen()));
+    saveAct = new QAction(QIcon(rsrcPath + "/filesave.png"), tr("保存(&S)"), this);
+    saveAct->setShortcuts(QKeySequence::Save);
+    saveAct->setToolTip("保存");
+    saveAct->setStatusTip(tr("将当前文档存盘"));
+    //connect(saveAct, SIGNAL(triggered()), this, SLOT(fileSave()));
+    saveAsAct = new QAction(tr("另存为(&A)..."), this);
+    saveAsAct->setShortcuts(QKeySequence::SaveAs);
+    saveAsAct->setStatusTip(tr("以一个新名字保存文档"));
+    //connect(saveAsAct, SIGNAL(triggered()), this, SLOT(fileSaveAs()));
+    printAct = new QAction(QIcon(rsrcPath + "/fileprint.png"), tr("打印(&P)..."), this);
+    printAct->setShortcuts(QKeySequence::Print);
+    printAct->setToolTip("打印");
+    printAct->setStatusTip(tr("打印文档"));
+    //connect(printAct, SIGNAL(triggered()), this, SLOT(filePrint()));
+    printPreviewAct = new QAction(tr("打印预览..."), this);
+
+    printPreviewAct->setStatusTip(tr("预览打印效果"));
+    //connect(printPreviewAct, SIGNAL(triggered()), this, SLOT 
+(filePrintPreview()));
+    exitAct = new QAction(tr("退出(&X)"), this);
+    exitAct->setShortcuts(QKeySequence::Quit);
+    exitAct->setStatusTip(tr("退出应用程序"));
+    connect(exitAct, SIGNAL(triggered()), qApp, SLOT(closeAllWindows()));
+}

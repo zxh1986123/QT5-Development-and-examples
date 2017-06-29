@@ -1,0 +1,22 @@
+QVariant ModelEx::data(const QModelIndex &index, int role) const
+{
+    if(!index.isValid())
+        return QVariant();
+    if(role==Qt::DisplayRole)				//(a)
+    {
+        switch(index.column())
+        {
+        case 0:
+            return armyMap[army[index.row()]];
+            break;
+        case 1:
+            return weaponTypeMap[weaponType[index.row()]];
+            break;
+        case 2:
+            return weapon[index.row()];
+        default:
+            return QVariant();
+        }
+    }
+    return QVariant();
+}

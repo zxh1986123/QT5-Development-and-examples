@@ -1,0 +1,22 @@
+void Widget::createChartModelView()
+{
+    chartModel = new QStandardItemModel(this);
+    chartModel->setColumnCount(2);
+    chartModel->setHeaderData(0,Qt::Horizontal,QString("品牌"));
+    chartModel->setHeaderData(1,Qt::Horizontal,QString("销售数量"));
+    QSplitter *splitter = new QSplitter(ui->chartPage);
+    splitter->resize(700,320);
+    splitter->move(0,80);
+    QTableView *table = new QTableView;
+    PieView *pieChart = new PieView;
+    splitter->addWidget(table);
+    splitter->addWidget(pieChart);
+    splitter->setStretchFactor(0,1);
+    splitter->setStretchFactor(1,2);
+    table->setModel(chartModel);
+    pieChart->setModel(chartModel);
+    QItemSelectionModel *selectionModel = new QItemSelectionModel 
+(chartModel);
+    table->setSelectionModel(selectionModel);
+    pieChart->setSelectionModel(selectionModel);
+}

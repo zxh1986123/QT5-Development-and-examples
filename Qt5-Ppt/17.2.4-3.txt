@@ -1,0 +1,39 @@
+void MyWord::updateWindowMenu()
+{
+	//首先清空菜单，然后再添加各个菜单动作
+    windowMenu->clear();
+    windowMenu->addAction(closeAct);
+    windowMenu->addAction(closeAllAct);
+    windowMenu->addSeparator();
+    windowMenu->addAction(tileAct);
+    windowMenu->addAction(cascadeAct);
+    windowMenu->addSeparator();
+    windowMenu->addAction(nextAct);
+    windowMenu->addAction(previousAct);
+    windowMenu->addAction(separatorAct);
+	//如果有活动窗口，则显示分隔条
+    QList<QMdiSubWindow *> windows = mdiArea->subWindowList();
+    separatorAct->setVisible(!windows.isEmpty());
+    //遍历各个子窗口，显示当前已打开的文档子窗口项
+    for (int i = 0; i < windows.size(); ++i) {
+        MyChild *child = qobject_cast<MyChild *>(windows.at(i)-> widget());
+        QString text;
+        if (i < 9) {
+            text = tr("&%1 %2").arg(i + 1).arg(child-> 
+userFriendlyCurrentFile());
+        } else {
+            text = tr("%1 %2").arg(i + 1).arg(child->
+userFriendlyCurrentFile ());
+        }
+	//添加动作到菜单，设置动作可以选择
+        QAction *action  = windowMenu->addAction(text);
+        action->setCheckable(true);
+	//设置当前活动窗口动作为选中状态
+        action ->setChecked(child == activeMyChild());
+	//关联动作的触发信号到信号映射器的map()槽，这个槽会发送mapped()信号
+        connect(action, SIGNAL(triggered()), windowMapper, SLOT(map()));
+	//将动作与相应的窗口部件进行映射，在发送mapped()信号时就会以这个窗口部件为参数
+        windowMapper->setMapping(action, windows.at(i));
+    }
+    enabledText();          //使得字体设置菜单可用
+}

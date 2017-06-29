@@ -1,0 +1,23 @@
+void ExtensionDlg::createDetailInfo()
+{
+    	detailWidget =new QWidget;
+    	QLabel *ageLabel =new QLabel(tr("年龄："));
+    	QLineEdit *ageLineEdit =new QLineEdit;
+    	ageLineEdit->setText(tr("30"));
+    	QLabel *departmentLabel =new QLabel(tr("部门："));
+    	QComboBox *departmentComBox =new QComboBox;
+    	departmentComBox->addItem(tr("部门1"));
+    	departmentComBox->addItem(tr("部门2"));
+    	departmentComBox->addItem(tr("部门3"));
+    	departmentComBox->addItem(tr("部门4"));
+    	QLabel *emailLabel =new QLabel(tr("email："));
+    	QLineEdit *emailLineEdit =new QLineEdit;
+    	QGridLayout *mainLayout =new QGridLayout(detailWidget);
+    	mainLayout->addWidget(ageLabel,0,0);
+    	mainLayout->addWidget(ageLineEdit,0,1);
+    	mainLayout->addWidget(departmentLabel,1,0);
+    	mainLayout->addWidget(departmentComBox,1,1);
+    	mainLayout->addWidget(emailLabel,2,0);
+    	mainLayout->addWidget(emailLineEdit,2,1);
+    detailWidget->hide();
+}

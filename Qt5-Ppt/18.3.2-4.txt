@@ -1,0 +1,39 @@
+void Widget::processPendingDatagrams()
+{
+    while(udpSocket->hasPendingDatagrams())				//(a)
+    {
+        QByteArray datagram;
+        datagram.resize(udpSocket->pendingDatagramSize());
+														//(b)
+        udpSocket->readDatagram(datagram.data(), datagram.size());
+        QDataStream in(&datagram, QIODevice::ReadOnly);
+        int msgType;
+        in >> msgType;									//(c)
+        QString usrName,ipAddr,msg;
+        QString time = QDateTime::currentDateTime().toString("yyyy- MM-dd hh:mm:ss");
+        switch(msgType)
+        {
+        case Msg:
+            in >> usrName >> ipAddr >> msg;				//(d)
+            ui->msgBrowser->setTextColor(Qt::blue);
+            ui->msgBrowser->setCurrentFont(QFont("Times New Roman", 12));
+            ui->msgBrowser->append("[ " +usrName+" ] "+ time);
+            ui->msgBrowser->append(msg);
+            break;
+        case UsrEnter:									//(e)
+            in >>usrName >>ipAddr;
+            usrEnter(usrName,ipAddr);
+            break;
+        case UsrLeft:									//(f)
+            in >>usrName;
+            usrLeft(usrName,time);
+            break;
+        case FileName: {
+            break;
+        }
+        case Refuse: {
+            break;
+        }
+        }
+    }
+}

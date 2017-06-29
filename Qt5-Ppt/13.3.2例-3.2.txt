@@ -1,0 +1,16 @@
+#include <QMessageBox>
+#include <QSqlRecord>
+MainWindow::MainWindow(const QString &factoryTable, const QString &car Table, QFile *carDetails, QWidget *parent) : QMainWindow(parent)
+{
+    file = carDetails;
+    readCarData();										//(a)
+    carModel = new QSqlRelationalTableModel(this);		//(b)
+    carModel->setTable(carTable);
+    carModel->setRelation(2, QSqlRelation(factoryTable, "id",
+ "manufactory"));											//(c)
+    carModel->select();
+    factoryModel = new QSqlTableModel(this);			//(d)
+    factoryModel->setTable(factoryTable);
+    factoryModel->select();
+бн
+}

@@ -1,0 +1,17 @@
+void ConnDlg::creatDB()
+{
+   	QSqlQuery query;							//(a)
+   	query.exec("create table factory (id int primary key,manufactory varchar(40), address varchar(40))");				//(b)
+    	query.exec(QObject::tr("insert into factory values(1, '一汽大众', '长春')"));
+    	query.exec(QObject::tr("insert into factory values(2, '二汽神龙', '武汉')"));
+    	query.exec(QObject::tr("insert into factory values(3, '上海大众', '上海')"));
+    	query.exec("create table cars (carid int primary key, name varchar(50), factoryid int, year int, foreign key(factoryid) references factory)");														//(c)
+    	query.exec(QObject::tr("insert into cars values(1,'奥迪A6',1,2005)"));
+    	query.exec(QObject::tr("insert into cars values(2, '捷达', 1, 1993)"));
+    	query.exec(QObject::tr("insert into cars values(3, '宝来', 1, 2000)"));
+    	query.exec(QObject::tr("insert into cars values(4, '毕加索',2, 1999)"));
+    	query.exec(QObject::tr("insert into cars values(5, '富康', 2, 2004)"));
+    	query.exec(QObject::tr("insert into cars values(6, '标致307',2, 2001)"));
+    	query.exec(QObject::tr("insert into cars values(7, '桑塔纳',3, 1995)"));
+    	query.exec(QObject::tr("insert into cars values(8, '帕萨特',3, 2000)"));
+}

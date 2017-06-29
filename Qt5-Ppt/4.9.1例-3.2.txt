@@ -1,0 +1,24 @@
+void Palette::createContentFrame()
+{
+	contentFrame =new QFrame;                	//具体显示面板
+	label1 =new QLabel(tr("请选择一个值："));
+	comboBox1 =new QComboBox;
+	label2 =new QLabel(tr("请输入字符串："));
+	lineEdit2 =new QLineEdit;
+	textEdit =new QTextEdit;
+	QGridLayout *TopLayout =new QGridLayout;
+    	TopLayout->addWidget(label1,0,0);
+    	TopLayout->addWidget(comboBox1,0,1);
+    	TopLayout->addWidget(label2,1,0);
+    	TopLayout->addWidget(lineEdit2,1,1);
+    	TopLayout->addWidget(textEdit,2,0,1,2);
+    	OkBtn =new QPushButton(tr("确认"));
+    	CancelBtn =new QPushButton(tr("取消"));
+    	QHBoxLayout *BottomLayout =new QHBoxLayout;
+    	BottomLayout->addStretch(1);
+    	BottomLayout->addWidget(OkBtn);
+    	BottomLayout->addWidget(CancelBtn);
+    	QVBoxLayout *mainLayout =new QVBoxLayout(contentFrame);
+    	mainLayout->addLayout(TopLayout);
+    	mainLayout->addLayout(BottomLayout);
+}

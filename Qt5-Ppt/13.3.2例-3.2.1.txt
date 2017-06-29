@@ -1,0 +1,25 @@
+void MainWindow::showCarDetails(QModelIndex index)
+{
+    	QSqlRecord record = carModel->record(index.row());		//(a)
+    	QString factory = record.value("manufactory").toString();
+															//(b)
+    	QString name = record.value("name").toString();		//(c)
+    	QString year = record.value("year").toString();		//(d)
+    	QString carId = record.value("carid").toString();		//(e)
+    	showFactorytProfile(indexOfFactory(factory));			//(f)
+    	titleLabel->setText(tr("品牌: %1 (%2)").arg(name).arg(year));
+															//(g)
+    	titleLabel->show();
+    	QDomNodeList cars = carData.elementsByTagName("car");	//(h)
+    	for (int i = 0; i < cars.count(); i++)			//找出所有car标签
+    	{
+       	QDomNode car = cars.item(i);
+        	if (car.toElement().attribute("id") == carId)		//(i) 
+         	{
+            	getAttribList(car.toElement());				//(j)
+            	break;
+        	}
+    	}
+    	if (!attribList->count() == 0)
+      	attribList->show();
+}

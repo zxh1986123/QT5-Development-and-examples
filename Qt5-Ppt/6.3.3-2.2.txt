@@ -1,0 +1,18 @@
+void MainWindow::ShowStyle()
+{    
+    drawWidget->setStyle(styleComboBox->itemData(
+        styleComboBox->currentIndex(),Qt::UserRole).toInt());
+}
+void MainWindow::ShowColor()
+{
+    QColor color = QColorDialog::getColor(static_cast<int> (Qt::black), this);
+	//使用标准颜色对话框QColorDialog获得一个颜色值
+    if(color.isValid())
+    {
+	   //将新选择的颜色传给绘制区，用于改变画笔的颜色值
+        drawWidget->setColor(color);	
+        QPixmap p(20,20);
+        p.fill(color);
+        colorBtn->setIcon(QIcon(p));		//更新颜色选择按钮上的颜色显示
+    }
+}

@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>images/大卫.jpg</file>
+        <file>images/蒙娜丽莎.jpg</file>
+        <file>images/圣母.jpg</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,21 @@
+#include <QDebug>
+int main(int argc,char *argv[])
+{
+	QList<int> list;						//创建一个空的列表list
+	QMutableListIterator<int> i(list);	//创建上述列表的读写迭代器
+	for(int j=0;j<10;++j)
+		i.insert(j);						//(a)
+	for(i.toFront();i.hasNext();)			//(b)
+		qDebug()<<i.next();
+	for(i.toBack();i.hasPrevious();)		//(c)
+	{
+		if(i.previous()%2==0)
+			i.remove();
+		else
+	        i.setValue(i.peekNext()*10);	//(d)
+	}
+	for(i.toFront();i.hasNext();)			//重新遍历并输出列表
+		    qDebug()<<i.next();
+	return 0;
+}
+

@@ -1,0 +1,24 @@
+void ExtensionDlg::createBaseInfo()
+{
+    	baseWidget =new QWidget;
+    	QLabel *nameLabel =new QLabel(tr("姓名："));
+    	QLineEdit *nameLineEdit =new QLineEdit;
+    	QLabel *sexLabel =new QLabel(tr("性别："));
+    	QComboBox *sexComboBox =new  QComboBox;
+    	sexComboBox->insertItem(0,tr("女"));
+    	sexComboBox->insertItem(1,tr("男"));
+    	QGridLayout *LeftLayout =new QGridLayout;
+    	LeftLayout->addWidget(nameLabel,0,0);
+    	LeftLayout->addWidget(nameLineEdit,0,1);
+    	LeftLayout->addWidget(sexLabel);
+    	LeftLayout->addWidget(sexComboBox);
+    	QPushButton *OKBtn =new QPushButton(tr("确定"));
+    	QPushButton *DetailBtn =new QPushButton(tr("详细"));
+    	QDialogButtonBox *btnBox =new QDialogButtonBox(Qt::Vertical);
+    	btnBox->addButton(OKBtn,QDialogButtonBox::ActionRole);
+    	btnBox->addButton(DetailBtn,QDialogButtonBox::ActionRole);
+    	QHBoxLayout *mainLayout =new QHBoxLayout(baseWidget);
+    	mainLayout->addLayout(LeftLayout);
+    	mainLayout->addWidget(btnBox);
+    connect(DetailBtn,SIGNAL(clicked()),this,SLOT(showDetailInfo()));
+}

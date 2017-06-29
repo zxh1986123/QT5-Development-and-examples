@@ -1,0 +1,29 @@
+void Dialog::addAttribs(int carId, QStringList attribs)
+{
+	 /* 创建一个car标签 */
+   	 QDomElement carNode = carDetails.createElement("car");
+    	 carNode.setAttribute("id", carId);				//(a)
+    	 for (int i = 0; i < attribs.count(); i++)		//(b) 
+   	 {
+   	     QString attribNumber = QString::number(i+1);
+        	if (i < 10)
+   	         attribNumber.prepend("0");
+        	QDomText textNode = carDetails.createTextNode(attribs.at(i));
+        	QDomElement attribNode = carDetails.createElement("attrib");
+        	attribNode.setAttribute("number", attribNumber);
+        	attribNode.appendChild(textNode);
+        	carNode.appendChild(attribNode);
+    	 }
+   	 QDomNodeList archive = carDetails.elementsByTagName("archive");
+    	 archive.item(0).appendChild(carNode);
+    	 if (!outputFile->open(QIODevice::WriteOnly))	//(c) 
+   	 {
+   	     return;
+   	 } 
+   	 else 
+   	 {
+        	QTextStream stream(outputFile);
+        	archive.item(0).save(stream, 4);
+        	outputFile->close();
+    	 }
+}

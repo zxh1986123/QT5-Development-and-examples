@@ -1,0 +1,24 @@
+//读取 XML 文档
+bool Widget::docRead()
+{
+    QFile file("data.xml");
+    if(!file.open(QIODevice::ReadOnly))
+            return false;
+    if(!doc.setContent(&file)){
+        file.close();
+        return false;
+    }
+    file.close();
+    return true;
+}
+//写入 XML 文档
+bool Widget::docWrite()
+{
+    QFile file("data.xml");
+    if(!file.open(QIODevice::WriteOnly|QIODevice::Truncate))
+            return false;
+    QTextStream out(&file);
+    doc.save(out,4);
+    file.close();
+    return true;
+}

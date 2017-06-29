@@ -1,0 +1,27 @@
+#include "mainwindow.h"
+#include <QGridLayout>
+#include <QAbstractItemView>
+#include <QHeaderView>
+#include <QAction>
+#include <QMenu>
+#include <QMenuBar>
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+{
+    QGroupBox *factory = createFactoryGroupBox();
+    QGroupBox *cars = createCarGroupBox();
+    QGroupBox *details = createDetailsGroupBox();
+    //布局
+    QGridLayout *layout = new QGridLayout;
+    layout->addWidget(factory, 0, 0);
+    layout->addWidget(cars, 1, 0);
+    layout->addWidget(details, 0, 1, 2, 1);
+    layout->setColumnStretch(1, 1);
+    layout->setColumnMinimumWidth(0, 500);
+    QWidget *widget = new QWidget;
+    widget->setLayout(layout);
+    setCentralWidget(widget);
+    createMenuBar();
+    resize(850, 400);
+    setWindowTitle(tr("主从视图"));
+}

@@ -1,0 +1,43 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>images/editcopy.png</file>
+        <file>images/editcut.png</file>
+        <file>images/editpaste.png</file>
+        <file>images/filehtml.png</file>
+        <file>images/fileimage.png</file>
+        <file>images/filetext.png</file>
+        <file>images/rotaleft.png</file>
+        <file>images/rotaright.png</file>
+        <file>images/vieweye.png</file>
+        <file>images/zoomin.png</file>
+        <file>images/zoomout.png</file>
+        <file>ToolSeparator.qml</file>
+        <file>easybooks/191.jpg</file>
+        <file>easybooks/211.jpg</file>
+        <file>easybooks/372.gif</file>
+        <file>easybooks/526.jpg</file>
+        <file>easybooks/545.jpg</file>
+        <file>easybooks/827.jpg</file>
+        <file>easybooks/888.jpg</file>
+        <file>easybooks/47945.gif</file>
+        <file>easybooks/books_button_07.jpg</file>
+        <file>easybooks/mainpage_21.jpg</file>
+        <file>easybooks/mainpage_22.jpg</file>
+        <file>easybooks/mainpage_25.jpg</file>
+        <file>easybooks/mainpage_26.jpg</file>
+        <file>easybooks/mainpage_27.jpg</file>
+        <file>easybooks/mainpage_28.jpg</file>
+        <file>easybooks/mainpage_31.jpg</file>
+        <file>easybooks/mainpage_33.jpg</file>
+        <file>easybooks/mainpage_37.jpg</file>
+        <file>easybooks/mainpage_38.jpg</file>
+        <file>easybooks/res_pic_14.gif</file>
+        <file>easybooks/upload_resource.jpg</file>
+        <file>easybooks.htm</file>
+        <file>easybooks/150.jpg</file>
+        <file>easybooks/850.jpg</file>
+        <file>easybooks/174.jpg</file>
+        <file>easybooks/218.jpg</file>
+    </qresource>
+</RCC>

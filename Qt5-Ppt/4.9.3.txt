@@ -1,0 +1,20 @@
+void DigiClock::mousePressEvent(QMouseEvent *event)
+{
+	if(event->button()==Qt::LeftButton)
+	{
+		 dragPosition=event->globalPos()-frameGeometry().topLeft();
+        	 event->accept();
+    	}
+	if(event->button()==Qt::RightButton)
+	{
+		close();
+    	}
+}
+void DigiClock::mouseMoveEvent(QMouseEvent *event)
+{
+	if(event->buttons()&Qt::LeftButton)
+	{
+		move(event->globalPos()-dragPosition);
+		event->accept();
+	}
+}

@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>images/bee.gif</file>
+        <file>MyGraph.qml</file>
+    </qresource>
+</RCC>

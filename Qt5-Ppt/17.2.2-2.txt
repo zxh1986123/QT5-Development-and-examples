@@ -1,0 +1,29 @@
+void MyWord::createActions()
+{
+    /*"文件"主菜单动作集*/
+	...
+    /*"编辑"主菜单动作集*/
+    undoAct = new QAction(QIcon(rsrcPath + "/editundo.png"),tr("撤销(&U)"), this);
+    undoAct->setShortcut(QKeySequence::Undo);
+    undoAct->setToolTip("撤销");
+    undoAct->setStatusTip(tr("撤销当前操作"));
+    redoAct = new QAction(QIcon(rsrcPath + "/editredo.png"),tr("重做(&R)"), this);
+    redoAct->setShortcut(QKeySequence::Redo);
+    redoAct->setToolTip("重做");
+    redoAct->setStatusTip(tr("恢复之前操作"));
+    cutAct = new QAction(QIcon(rsrcPath + "/editcut.png"),tr("剪切(&T)"), this);
+    cutAct->setShortcuts(QKeySequence::Cut);
+    cutAct->setToolTip("剪切");
+    cutAct->setStatusTip(tr("从文档中裁剪所选内容，并将其放入剪贴板"));
+    //connect(cutAct, SIGNAL(triggered()), this, SLOT(cut()));
+    copyAct = new QAction(QIcon(rsrcPath + "/editcopy.png"),tr("复制(&C)"), this);
+    copyAct->setShortcuts(QKeySequence::Copy);
+    copyAct->setToolTip("复制");
+    copyAct->setStatusTip(tr("复制所选内容，并将其放入剪贴板"));
+    //connect(copyAct, SIGNAL(triggered()), this, SLOT(copy()));
+    pasteAct = new QAction(QIcon(rsrcPath + "/editpaste.png"),tr("粘贴(&P)"), this);
+    pasteAct->setShortcuts(QKeySequence::Paste);
+    pasteAct->setToolTip("粘贴");
+    pasteAct->setStatusTip(tr("将剪贴板的内容粘贴到文档"));
+    //connect(pasteAct, SIGNAL(triggered()), this, SLOT(paste()));
+}

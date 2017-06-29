@@ -1,0 +1,46 @@
+#include "pieview.h"
+#include <QPainter>
+PieView::PieView(QWidget *parent) :
+    QAbstractItemView(parent)
+{
+}
+void PieView::paintEvent(QPaintEvent *)
+{
+	...//本书前面已给出
+}
+void PieView::setSelectionModel(QItemSelectionModel *selectionModel)
+{
+    selections = selectionModel;
+}
+QRegion PieView::itemRegion(QModelIndex index)
+{
+    QRegion region;
+    if (index.column() == 1)			//销售数量
+        region = RegionList[index.row()];
+    return region;
+}
+QModelIndex PieView::indexAt(const QPoint &point) const
+{
+    QPoint newPoint(point.x(),point.y());
+    QRegion region;
+    foreach(region,RegionList)			//销售数量一列
+    {
+        if (region.contains(newPoint))
+        {
+            int row = RegionList.indexOf(region);
+            QModelIndex index = model()->index(row,1,rootIndex());
+            return index;
+        }
+    }
+    return QModelIndex();
+}
+//下面是未实现的纯虚函数的定义声明
+QRect PieView::visualRect(const QModelIndex &index) const{}
+void PieView::scrollTo(const QModelIndex &index, ScrollHint hint){}
+QModelIndex PieView::moveCursor(CursorAction cursorAction, Qt:: 
+KeyboardModifiers modifiers){}
+int PieView::horizontalOffset()const{}
+int PieView::verticalOffset()const{}
+bool PieView::isIndexHidden(const QModelIndex &index) const{}
+void PieView::setSelection(const QRect &rect, QItemSelectionModel:: SelectionFlags command){}
+QRegion PieView::visualRegionForSelection(const QItemSelection &selection) const{}

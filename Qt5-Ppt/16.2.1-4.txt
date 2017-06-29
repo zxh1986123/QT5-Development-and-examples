@@ -1,0 +1,26 @@
+void Widget::on_sellBrandComboBox_currentIndexChanged(const QString &arg1)
+{
+    ui->sellNumSpinBox->setValue(0);
+    ui->sellNumSpinBox->setEnabled(false);
+    ui->sellSumLineEdit->clear();
+    ui->sellSumLineEdit->setEnabled(false);
+    ui->sellOkBtn->setEnabled(false);
+    QSqlQuery query;
+    query.exec(QString("select price from brand where name='%1' and factory= '%2'").arg(arg1).arg(ui->sellFactoryComboBox->currentText()));
+    query.next();
+    ui->sellPriceLineEdit->setEnabled(true);
+    ui->sellPriceLineEdit->setReadOnly(true);
+    ui->sellPriceLineEdit->setText(query.value(0).toString());
+    query.exec(QString("select last from brand where name='%1' and factory= '%2'").arg(arg1).arg(ui->sellFactoryComboBox->currentText()));
+    query.next();
+    int num = query.value(0).toInt();
+    if(num == 0){
+        QMessageBox::information(this,tr("提示"),tr("该品牌汽车已经售完！"), QMessageBox::Ok);
+    }
+    else{
+        ui->sellNumSpinBox->setEnabled(true);
+        ui->sellNumSpinBox->setMaximum(num);
+        ui->sellLastNumLabel->setText(tr("剩余数量：%1").arg(num));
+        ui->sellLastNumLabel->setVisible(true);
+    }
+}

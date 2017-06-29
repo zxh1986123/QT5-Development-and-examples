@@ -1,0 +1,93 @@
+.CommonTextBlack {
+	LINE-HEIGHT: normal; COLOR: #000; FONT-SIZE: 12px
+}
+.FeaturesBlack {
+	LINE-HEIGHT: 18px; COLOR: #000; FONT-SIZE: 12px
+}
+.BookNameListBlack {
+	LINE-HEIGHT: 20px; COLOR: #000; FONT-SIZE: 13.4px
+}
+.ItemBlackBold {
+	COLOR: #000; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+.ItemContentOrange {
+	COLOR: #ff7f00; FONT-SIZE: 12px
+}
+.FeaturesBlueBold {
+	COLOR: #138cd1; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+#book_image {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 5px; WIDTH: 100px; PADDING-RIGHT: 0px; FLOAT: left; HEIGHT: 140px; OVERFLOW: hidden; PADDING-TOP: 5px
+}
+#book_image IMG {
+	WIDTH: 98px; HEIGHT: 139px
+}
+#book_info {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; WIDTH: 243px; PADDING-RIGHT: 0px; FLOAT: left; HEIGHT: 130px; OVERFLOW: hidden; PADDING-TOP: 10px
+}
+.books_zz_text {
+	LINE-HEIGHT: 20px; HEIGHT: 20px; FONT-SIZE: 12px; OVERFLOW: hidden; FONT-WEIGHT: normal
+}
+.books_zz_text A:link {
+	COLOR: #ed6307
+}
+.books_zz_text A:visited {
+	COLOR: #ed6307
+}
+.books_zz_text A:hover {
+	COLOR: #555555
+}
+#contents {
+	LINE-HEIGHT: 16px; WIDTH: 327px; FLOAT: left; HEIGHT: 128px; FONT-SIZE: 13px; OVERFLOW: hidden; textindent: 24px
+}
+#front {
+	LINE-HEIGHT: 16px; WIDTH: 327px; FLOAT: left; HEIGHT: 190px; FONT-SIZE: 13px; OVERFLOW: hidden; textindent: 24px
+}
+#bksresource {
+	WIDTH: 327px; FLOAT: left
+}
+#bksresource UL {
+	LIST-STYLE-TYPE: none; LIST-STYLE-IMAGE: none
+}
+#bksresource UL LI {
+	LINE-HEIGHT: 20px; WHITE-SPACE: nowrap; HEIGHT: 20px
+}
+#bksresource UL LI A {
+	PADDING-LEFT: 8px; BACKGROUND: url(../newimg/bstopic/def/z_middot.jpg) no-repeat 0px 8px
+}
+#bksresource UL LI IMG {
+	PADDING-LEFT: 8px; VERTICAL-ALIGN: middle
+}
+#errorfix {
+	LINE-HEIGHT: 16px; WIDTH: 327px; FLOAT: left; HEIGHT: 128px; FONT-SIZE: 13px; OVERFLOW: hidden
+}
+#serBrief {
+	LINE-HEIGHT: 16px; WIDTH: 327px; FLOAT: left; HEIGHT: 110px; FONT-SIZE: 13px; OVERFLOW: hidden; textindent: 24px
+}
+#catalogue {
+	LINE-HEIGHT: 16px; WIDTH: 327px; FLOAT: left; HEIGHT: 384px; FONT-SIZE: 13px; OVERFLOW: hidden
+}
+#bksreaderresource {
+	WIDTH: 324px; FLOAT: left
+}
+#bksreaderresource UL {
+	LIST-STYLE-TYPE: none; LIST-STYLE-IMAGE: none
+}
+#bksreaderresource UL LI {
+	LINE-HEIGHT: 20px; WHITE-SPACE: nowrap; HEIGHT: 20px
+}
+#bksreaderresource UL LI A {
+	PADDING-LEFT: 8px; BACKGROUND: url(../newimg/bstopic/def/z_middot.jpg) no-repeat 0px 8px
+}
+#bksreaderresource UL LI IMG {
+	PADDING-LEFT: 8px; VERTICAL-ALIGN: middle
+}
+#bksreaderupload {
+	TEXT-ALIGN: right; WIDTH: 324px; FLOAT: left; PADDING-TOP: 12px
+}
+#book_ad {
+	LINE-HEIGHT: 16px; WIDTH: 367px; FLOAT: left; HEIGHT: 148px; FONT-SIZE: 13px; OVERFLOW: hidden
+}
+.input_bg {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; WIDTH: 65px; BACKGROUND: url(../newimg/bstopic/jsj1/enter.jpg) no-repeat 0px 0px; HEIGHT: 33px; BORDER-TOP: medium none; CURSOR: pointer; BORDER-RIGHT: medium none
+}

@@ -1,0 +1,18 @@
+void MsgBoxDlg::showQuestionMsg()
+{
+    label->setText(tr("Question Message Box"));
+    switch(QMessageBox::question(this,tr("Question消息框"),
+          tr("您现在已经修改完成，是否要结束程序？"),
+          QMessageBox::Ok|QMessageBox::Cancel,QMessageBox::Ok))
+    {
+    case QMessageBox::Ok:
+        label->setText("Question button/Ok");
+        break;
+    case QMessageBox::Cancel:
+        label->setText("Question button/Cancel");
+        break;
+    default:
+        break;
+    }
+    return;
+}

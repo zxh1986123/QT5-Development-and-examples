@@ -1,0 +1,26 @@
+void Widget::on_sellOkBtn_clicked()
+{
+    QString factory = ui->sellFactoryComboBox->currentText();
+    QString name = ui->sellBrandComboBox->currentText();
+    int value = ui->sellNumSpinBox->value();
+    //sellNumSpinBox 的最大值就是以前的剩余量
+    int last = ui->sellNumSpinBox->maximum()-value;
+    QSqlQuery query;
+    //获取以前的销售量
+    query.exec(QString("select sell from brand where name='%1' and factory= '%2'").arg(name).arg(factory));
+    query.next();
+    int sell = query.value(0).toInt() + value;
+    //事务操作
+    QSqlDatabase::database().transaction();
+    bool rtn = query.exec(QString("update brand set sell= %1,last= %2 where name='%3' and factory='%4'").arg(sell).arg(last).arg(name).arg(factory));
+    if(rtn){
+        QSqlDatabase::database().commit();
+        QMessageBox::information(this,tr("提示"),tr("购车成功！"), QMessageBox::Ok);
+        //writeXml();
+        //showDailyList();
+        on_sellCancelBtn_clicked();
+    }
+    else{
+        QSqlDatabase::database().rollback();
+    }
+}

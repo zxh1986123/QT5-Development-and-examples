@@ -1,0 +1,24 @@
+void NetworkInformation::slotDetail()
+{
+    QString detail="";
+    QList<QNetworkInterface> list=QNetworkInterface::allInterfaces();
+																//(a)
+    for(int i=0;i<list.count();i++)
+    {
+        QNetworkInterface interface=list.at(i);
+        detail=detail+tr("设备：")+interface.name()+"\n";
+																//(b)
+        detail=detail+tr("硬件地址：")+interface.hardwareAddress()+"\n";
+																//(c)
+        QList<QNetworkAddressEntry> entryList=interface.addressEntries();
+																//(d)
+        for(int j=0;j<entryList.count();j++)
+        {
+            QNetworkAddressEntry entry=entryList.at(j);
+            detail=detail+"\t"+tr("IP 地址：")+entry.ip().toString()+"\n";
+            detail=detail+"\t"+tr("子网掩码：")+entry.netmask().toString() +"\n";
+           detail=detail+"\t"+tr("广播地址：")+entry.broadcast().toString() +"\n";
+        }
+    }
+    QMessageBox::information(this,tr("Detail"),detail);
+}

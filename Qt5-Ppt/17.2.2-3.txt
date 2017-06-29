@@ -1,0 +1,69 @@
+void MyWord::createActions()
+{
+	...
+    /*"格式"主菜单动作集*/
+    boldAct = new QAction(QIcon(rsrcPath + "/textbold.png"),tr("加粗(&B)"), this);
+    boldAct->setCheckable(true);
+    boldAct->setShortcut(Qt::CTRL + Qt::Key_B);
+    boldAct->setToolTip("加粗");
+    boldAct->setStatusTip(tr("将所选文字加粗"));
+    QFont bold;
+    bold.setBold(true);
+    boldAct->setFont(bold);
+    //connect(boldAct, SIGNAL(triggered()), this, SLOT(textBold()));
+    italicAct = new QAction(QIcon(rsrcPath + "/textitalic.png"),tr("倾斜(&I)"), this);
+    italicAct->setCheckable(true);
+    italicAct->setShortcut(Qt::CTRL + Qt::Key_I);
+    italicAct->setToolTip("倾斜");
+    italicAct->setStatusTip(tr("将所选文字用斜体显示"));
+    QFont italic;
+    italic.setItalic(true);
+    italicAct->setFont(italic);
+    //connect(italicAct, SIGNAL(triggered()), this, SLOT(textItalic()));
+    underlineAct = new QAction(QIcon(rsrcPath + "/textunder.png"), tr("下画线(&U)"), this);
+    underlineAct->setCheckable(true);
+    underlineAct->setShortcut(Qt::CTRL + Qt::Key_U);
+    underlineAct->setToolTip("下画线");
+    underlineAct->setStatusTip(tr("为所选文字加下画线"));
+    QFont underline;
+    underline.setUnderline(true);
+    underlineAct->setFont(underline);
+    //connect(underlineAct, SIGNAL(triggered()), this, SLOT 
+(textUnderline ()));
+    //“格式”→“段落”子菜单下的各项为同一个菜单项组，只能选中其中一项
+    QActionGroup *grp = new QActionGroup(this);
+    connect(grp, SIGNAL(triggered(QAction*)), this, SLOT(textAlign (QAction*)));
+    if (QApplication::isLeftToRight()) {
+        leftAlignAct = new QAction(QIcon(rsrcPath + "/textleft.png"), tr("左对齐(&L)"), grp);
+        centerAct = new QAction(QIcon(rsrcPath + "/textcenter.png"), tr("居中(&E)"), grp);
+        rightAlignAct = new QAction(QIcon(rsrcPath + "/textright.png"), tr("右对齐(&R)"), grp);
+    } else {
+        rightAlignAct = new QAction(QIcon(rsrcPath + "/textright.png"), tr("右对齐(&R)"), grp);
+        centerAct = new QAction(QIcon(rsrcPath + "/textcenter.png"), tr("居中(&E)"), grp);
+        leftAlignAct = new QAction(QIcon(rsrcPath + "/textleft.png"), tr("左对齐(&L)"), grp);
+    }
+
+    justifyAct = new QAction(QIcon(rsrcPath + "/textjustify.png"), tr("两端对齐(&J)"), grp);
+    leftAlignAct->setShortcut(Qt::CTRL + Qt::Key_L);
+    leftAlignAct->setCheckable(true);
+    leftAlignAct->setToolTip("左对齐");
+    leftAlignAct->setStatusTip(tr("将文字左对齐"));
+    centerAct->setShortcut(Qt::CTRL + Qt::Key_E);
+    centerAct->setCheckable(true);
+    centerAct->setToolTip("居中");
+    centerAct->setStatusTip(tr("将文字居中对齐"));
+    rightAlignAct->setShortcut(Qt::CTRL + Qt::Key_R);
+    rightAlignAct->setCheckable(true);
+    rightAlignAct->setToolTip("右对齐");
+    rightAlignAct->setStatusTip(tr("将文字右对齐"));
+    justifyAct->setShortcut(Qt::CTRL + Qt::Key_J);
+    justifyAct->setCheckable(true);
+    justifyAct->setToolTip("两端对齐");
+    justifyAct->setStatusTip(tr("将文字左右两端同时对齐，并根据需要增加字间距"));
+    QPixmap pix(16, 16);
+    pix.fill(Qt::red);
+    colorAct = new QAction(pix, tr("颜色(&C)..."), this);
+    colorAct->setToolTip("颜色");
+    colorAct->setStatusTip(tr("设置文字颜色"));
+    //connect(colorAct, SIGNAL(triggered()), this, SLOT(textColor()));
+}

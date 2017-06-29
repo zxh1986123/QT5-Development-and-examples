@@ -1,0 +1,32 @@
+void Widget::writeXml()
+{
+    //首先从文件读取
+    if(docRead()){
+        QString currentDate = getDateTime(Date);
+        QDomElement root = doc.documentElement();
+        //根据是否有日期节点进行处理
+        if(!root.hasChildNodes()){
+            QDomElement date = doc.createElement(QString("日期"));
+            QDomAttr curDate = doc.createAttribute("date");
+            curDate.setValue(currentDate);
+            date.setAttributeNode(curDate);
+            root.appendChild(date);
+            createNodes(date);
+        }else{
+            QDomElement date = root.lastChild().toElement();
+            //根据是否已经有今天的日期节点进行处理
+            if(date.attribute("date") == currentDate){
+                createNodes(date);
+            }else{
+                QDomElement date = doc.createElement(QString("日期"));
+                QDomAttr curDate = doc.createAttribute("date");
+                curDate.setValue(currentDate);
+                date.setAttributeNode(curDate);
+                root.appendChild(date);
+                createNodes(date);
+            }
+        }
+        //写入文件
+        docWrite();
+    }
+}

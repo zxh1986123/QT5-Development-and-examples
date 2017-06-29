@@ -1,0 +1,34 @@
+Drawer::Drawer(QWidget *parent, Qt::WindowFlags f)
+    :QToolBox(parent,f)
+{
+    setWindowTitle(tr("Myself QQ 2015"));      	//设置主窗体的标题
+    setWindowIcon(QPixmap(":/images/qq.png"));	//设置主窗体标题栏图标
+    toolBtn1 =new QToolButton;
+	...
+    connect(toolBtn1,SIGNAL(clicked()),this,SLOT(showChatWidget1()));
+    toolBtn2 =new QToolButton;
+	...
+    connect(toolBtn2,SIGNAL(clicked()),this,SLOT(showChatWidget2()));
+    toolBtn3 =new QToolButton;
+	...
+    connect(toolBtn3,SIGNAL(clicked()),this,SLOT(showChatWidget3()));
+    toolBtn4 =new QToolButton;
+	...
+    connect(toolBtn4,SIGNAL(clicked()),this,SLOT(showChatWidget4()));
+    toolBtn5 =new QToolButton;
+	...
+    connect(toolBtn5,SIGNAL(clicked()),this,SLOT(showChatWidget5()));
+    toolBtn6 =new QToolButton;
+	...
+    connect(toolBtn6,SIGNAL(clicked()),this,SLOT(showChatWidget6()));
+    toolBtn7 =new QToolButton;
+	...
+    connect(toolBtn7,SIGNAL(clicked()),this,SLOT(showChatWidget7()));
+    toolBtn8 =new QToolButton;
+	...
+    connect(toolBtn8,SIGNAL(clicked()),this,SLOT(showChatWidget8()));
+    toolBtn9 =new QToolButton;
+	...
+    connect(toolBtn9,SIGNAL(clicked()),this,SLOT(showChatWidget9()));
+	...
+}

@@ -1,0 +1,34 @@
+void Widget::createNodes(QDomElement &date)
+{
+    QDomElement time = doc.createElement(QString("时间"));
+    QDomAttr curTime = doc.createAttribute("time");
+    curTime.setValue(getDateTime(Time));
+    time.setAttributeNode(curTime);
+    date.appendChild(time);
+    QDomElement factory = doc.createElement(QString("厂家"));
+    QDomElement brand = doc.createElement(QString("品牌"));
+    QDomElement price = doc.createElement(QString("报价"));
+    QDomElement num = doc.createElement(QString("数量"));
+    QDomElement sum = doc.createElement(QString("金额"));
+    QDomText text;
+    text = doc.createTextNode(
+QString("%1").arg(ui->sellFactoryComboBox->currentText()));
+    factory.appendChild(text);
+    text = doc.createTextNode(
+			QString("%1").arg(ui->sellBrandComboBox->currentText()));
+    brand.appendChild(text);
+    text = doc.createTextNode(
+			QString("%1").arg(ui->sellPriceLineEdit->text()));
+    price.appendChild(text);
+    text = doc.createTextNode(
+			QString("%1").arg(ui->sellNumSpinBox->value()));
+    num.appendChild(text);
+    text = doc.createTextNode(
+			QString("%1").arg(ui->sellSumLineEdit->text()));
+    sum.appendChild(text);
+    time.appendChild(factory);
+    time.appendChild(brand);
+    time.appendChild(price);
+    time.appendChild(num);
+    time.appendChild(sum);
+}

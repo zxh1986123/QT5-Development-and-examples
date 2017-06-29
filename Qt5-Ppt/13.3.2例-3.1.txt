@@ -1,0 +1,25 @@
+#include <QFile>
+#include <QSqlRelationalTableModel>
+#include <QSqlTableModel>
+#include <QModelIndex>
+#include <QDomNode>
+#include <QDomDocument>
+public:
+	MainWindow(const QString &factoryTable, const QString &carTable, QFile *carDetails,QWidget *parent = 0);   //(a) 
+private slots:
+    	void addCar();
+    	void changeFactory(QModelIndex index);
+    	void delCar();
+    	void showCarDetails(QModelIndex index);
+    	void showFactorytProfile(QModelIndex index);
+private: 
+    	void decreaseCarCount(QModelIndex index);
+    	void getAttribList(QDomNode car);
+    	QModelIndex indexOfFactory(const QString &factory);
+    	void readCarData();
+    	void removeCarFromDatabase(QModelIndex index);
+    	void removeCarFromFile(int id);
+    	QDomDocument carData;
+    	QFile *file;
+    	QSqlRelationalTableModel *carModel;
+    	QSqlTableModel *factoryModel;

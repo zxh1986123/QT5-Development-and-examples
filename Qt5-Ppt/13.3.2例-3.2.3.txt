@@ -1,0 +1,25 @@
+void MainWindow::delCar()
+{
+    QModelIndexList selection = carView->selectionModel() ->selectedRows(0);
+    if (!selection.empty())										//(a) 
+    {
+        QModelIndex idIndex = selection.at(0);
+        int id = idIndex.data().toInt();
+        QString name = idIndex.sibling(idIndex.row(), 1).data(). toString();
+        QString factory = idIndex.sibling(idIndex.row(), 2).data(). toString();
+        QMessageBox::StandardButton button;
+        button = QMessageBox::question(this, tr("删除汽车记录"),
+            QString(tr("确认删除由'%1'生产的'%2'吗？").arg(factory).arg
+(name)),QMessageBox::Yes | QMessageBox::No);						//(b)
+        if (button == QMessageBox::Yes)	 	//得到用户确认
+        {
+            removeCarFromFile(id);			//从XML文件中删除相关内容
+            removeCarFromDatabase(idIndex);	//从数据库表中删除相关内容
+            decreaseCarCount(indexOfFactory(factory));    		//(c)
+        }
+	   else														//(d)
+    	   {
+        		QMessageBox::information(this, tr("删除汽车记录"),tr("请选择要删除的记录。"));
+    		}
+	}
+}

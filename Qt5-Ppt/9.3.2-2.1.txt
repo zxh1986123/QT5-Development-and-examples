@@ -1,0 +1,23 @@
+void FileView::showFileInfoList(QFileInfoList list)
+{
+    fileListWidget->clear();				//首先清空列表控件
+    for(unsigned int i=0;i<list.count();i++)	//(a)
+    {
+        QFileInfo tmpFileInfo=list.at(i);
+        if(tmpFileInfo.isDir())
+        {
+            QIcon icon("dir.png");
+            QString fileName = tmpFileInfo.fileName();
+            QListWidgetItem *tmp = new QListWidgetItem(icon,fileName);
+            fileListWidget->addItem(tmp);
+        }
+        else if(tmpFileInfo.isFile())
+        {
+            QIcon icon("file.png");
+            QString fileName=tmpFileInfo.fileName();
+            QListWidgetItem *tmp = new QListWidgetItem(icon,fileName);
+            fileListWidget->addItem(tmp);
+        }
+    }
+}
+

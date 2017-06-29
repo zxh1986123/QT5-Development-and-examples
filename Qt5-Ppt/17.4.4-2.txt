@@ -1,0 +1,21 @@
+void MyWord::createToolBars()
+{
+	...
+    //组合工具栏
+    addToolBarBreak(Qt::TopToolBarArea);
+    comboToolBar = addToolBar(tr("组合选择"));
+    comboStyle = new QComboBox();
+    comboToolBar->addWidget(comboStyle);
+    comboStyle->addItem("标准");
+    comboStyle->addItem("项目符号 (●)");
+    comboStyle->addItem("项目符号 (○)");
+    comboStyle->addItem("项目符号 (■)");
+    comboStyle->addItem("编号 (⒈⒉⒊)");
+    comboStyle->addItem("编号 ( a.b.c.)");
+    comboStyle->addItem("编号 ( A.B.C.)");
+    comboStyle->addItem("编号 (ⅰ.ⅱ.ⅲ.)");
+    comboStyle->addItem("编号 (Ⅰ.Ⅱ.Ⅲ.)");
+    comboStyle->setStatusTip("段落加标号或编号");
+    connect(comboStyle, SIGNAL(activated(int)), this, SLOT(textStyle (int)));
+	...
+}
